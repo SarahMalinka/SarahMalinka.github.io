@@ -6,49 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Waiting room</title>
     <style>
+        #container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 0%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
         #background {
             background-color: darkcyan;
         }
 
         #block1 {
             background-color: red;
-            height: 25pt;
-            width: 25pt;
+            width: 50%;
+            min-height: 20vh;
             position: relative;
-            left: 50pt;
-            top: 0pt;
+            left: ;
+            top: ;
         }
 
         #block2 {
             background-color: blue;
-            height: 50pt;
-            width: 50pt;
+            width: 50%;
+            min-height: 20vh;
             position: relative;
-            left: 0pt;
-            top: -25pt;
+            left: ;
+            top: 20vh;
         }
 
         @keyframes left1 {
             0% {
-                left: 50pt;
+                left: 0vw;
                 background-color: black;
             }
 
-            100% {
-                left: 250pt;
+            50% {
+                left: 50%;
                 background-color: red;
+            }
+
+            100% {
+                left: 0vw;
+                background-color: black;
             }
         }
 
-        @keyframes top1 {
+        @keyframes left2 {
             0% {
-                top: -25pt;
+                left: 50%;
                 background-color: black;
             }
 
-            100% {
-                top: 225pt;
+            50% {
+                left: 0vw;
                 background-color: blue;
+            }
+
+            100% {
+                left: 50%;
+                background-color: black;
             }
         }
 
@@ -57,32 +75,46 @@
                 background-color: darkcyan;
             }
 
-            100% {
+            50% {
                 background-color: black;
+            }
+
+            100% {
+                background-color: darkcyan;
             }
         }
 
         @keyframes changeTheme1 {
             0% {
-                top: -25pt;
+                left: 50%;
                 background-color: black;
             }
 
-            100% {
-                top: 225pt;
+            50% {
+                left: 0vw;
                 background-color: lime;
+            }
+
+            100% {
+                left: 50%;
+                background-color: black;
             }
         }
 
         @keyframes changeTheme2 {
             0% {
-                left: 50pt;
+                left: 0vw;
                 background-color: black;
             }
 
-            100% {
-                left: 250pt;
+            50% {
+                left: 50%;
                 background-color: lime;
+            }
+
+            100% {
+                left: 0vw;
+                background-color: black;
             }
         }
 
@@ -91,8 +123,12 @@
                 background-color: lime;
             }
 
-            100% {
+            50% {
                 background-color: black;
+            }
+
+            100% {
+                background-color: lime;
             }
         }
 
@@ -108,8 +144,8 @@
             animation: changeTheme3 2s infinite linear;
         }
 
-        .top1 {
-            animation: top1 2s infinite linear;
+        .left2 {
+            animation: left2 2s infinite linear;
         }
 
         .left1 {
@@ -123,22 +159,24 @@
 </head>
 
 <body id="background">
-    <div id="block1"></div>
-    <div id="block2"></div>
+    <div id="container">
+        <div id="block1"></div>
+        <div id="block2"></div>
+    </div>
 </body>
 <script>
     var character = document.getElementById("block2");
     var block1 = document.getElementById("block1");
     var background = document.getElementById("background");
     background.classList.add("background-color1");
-    block2.classList.add("top1");
+    block2.classList.add("left2");
     block1.classList.add("left1");
 
     function changeTheme() {
         if (background.classList != "changeTheme3") {
             background.classList.remove("background-color1");
             background.classList.add("changeTheme3")
-            block2.classList.remove("top1");
+            block2.classList.remove("left2");
             block2.classList.add("changeTheme1");
             block1.classList.remove("left1");
             block1.classList.add("changeTheme2");
@@ -147,7 +185,7 @@
             background.classList.remove("changeTheme3");
             background.classList.add("background-color1")
             block2.classList.remove("changeTheme1");
-            block2.classList.add("top1");
+            block2.classList.add("left2");
             block1.classList.remove("changeTheme2");
             block1.classList.add("left1");
         }
