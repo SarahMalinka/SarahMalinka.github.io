@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" onclick="changeTheme()">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Waiting room</title>
+    <style>
+        #container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 0%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        #background {
+            background-color: darkcyan;
+        }
+
+        #block1 {
+            background-color: red;
+            width: 25%;
+            min-height: 25vh;
+            position: relative;
+            left: ;
+            top: ;
+        }
+
+        #block2 {
+            background-color: blue;
+            width: 25%;
+            min-height: 25vh;
+            position: relative;
+            left: ;
+            top: 25vh;
+        }
+
+        @keyframes left1 {
+            0% {
+                left: 0vw;
+                background-color: black;
+            }
+
+            50% {
+                left: 75%;
+                background-color: red;
+            }
+
+            100% {
+                left: 0vw;
+                background-color: black;
+            }
+        }
+
+        @keyframes left2 {
+            0% {
+                left: 75%;
+                background-color: black;
+            }
+
+            50% {
+                left: 0vw;
+                background-color: blue;
+            }
+
+            100% {
+                left: 75%;
+                background-color: black;
+            }
+        }
+
+        @keyframes background-color1 {
+            0% {
+                background-color: darkcyan;
+            }
+
+            50% {
+                background-color: black;
+            }
+
+            100% {
+                background-color: darkcyan;
+            }
+        }
+
+        @keyframes changeTheme1 {
+            0% {
+                left: 0vw;
+                background-color: black;
+            }
+
+            50% {
+                left: 75%;
+                background-color: lime;
+            }
+
+            100% {
+                left: 0vw;
+                background-color: black;
+            }
+        }
+
+        @keyframes changeTheme2 {
+            0% {
+                left: 75%;
+                background-color: black;
+            }
+
+            50% {
+                left: 0vw;
+                background-color: lime;
+            }
+
+            100% {
+                left: 75%;
+                background-color: black;
+            }
+        }
+
+        @keyframes changeTheme3 {
+            0% {
+                background-color: lime;
+            }
+
+            50% {
+                background-color: black;
+            }
+
+            100% {
+                background-color: lime;
+            }
+        }
+
+        .changeTheme1 {
+            animation: changeTheme1 2s infinite linear;
+        }
+
+        .changeTheme2 {
+            animation: changeTheme2 2s infinite linear;
+        }
+
+        .changeTheme3 {
+            animation: changeTheme3 2s infinite linear;
+        }
+
+        .left2 {
+            animation: left2 2s infinite linear;
+        }
+
+        .left1 {
+            animation: left1 2s infinite linear;
+        }
+
+        .background-color1 {
+            animation: background-color1 2s infinite linear;
+        }
+    </style>
+</head>
+
+<body id="background">
+    <div id="container">
+        <div id="block1"></div>
+        <div id="block2"></div>
+    </div>
+</body>
+<script>
+    var character = document.getElementById("block2");
+    var block1 = document.getElementById("block1");
+    var background = document.getElementById("background");
+    background.classList.add("background-color1");
+    block2.classList.add("left2");
+    block1.classList.add("left1");
+
+    function changeTheme() {
+        if (background.classList != "changeTheme3") {
+            background.classList.remove("background-color1");
+            background.classList.add("changeTheme3")
+            block2.classList.remove("left2");
+            block2.classList.add("changeTheme1");
+            block1.classList.remove("left1");
+            block1.classList.add("changeTheme2");
+        } else if (background.classList != "background-color1") {
+
+            background.classList.remove("changeTheme3");
+            background.classList.add("background-color1")
+            block2.classList.remove("changeTheme1");
+            block2.classList.add("left2");
+            block1.classList.remove("changeTheme2");
+            block1.classList.add("left1");
+        }
+    }
+</script>
+
+</html>
